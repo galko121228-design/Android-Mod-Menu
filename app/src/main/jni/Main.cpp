@@ -42,7 +42,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
             OBFUSCATE("Button_Start Invcibility (30 sec duration)"),
             OBFUSCATE("SeekBar_Score multiplier_1_100"),
             OBFUSCATE("SeekBar_Coins multiplier_1_1000"),
-            OBFUSCATE("Category_Examples"), //Not counted
+            OBFUSCATE("Category_Define Client Settings"), //Not counted
             OBFUSCATE("Toggle_The toggle"),
             OBFUSCATE(
                     "100_Toggle_True_The toggle 2"), //This one have feature number assigned, and switched on by default
@@ -172,9 +172,11 @@ void *hack_thread(void *) {
     uintptr_t il2cppBase = g_il2cppELF.base();
 
     //Il2Cpp: Use RVA offset
-    StartInvcibility = (void (*)(void *, float)) getAbsoluteAddress(targetLibName, str2Offset(
-            OBFUSCATE("0x107A3BC")));
-
+    StartInvcibility = (void (*)(void *, float)) getAbsoluteAddress(targetLibName, str2Offset(OBFUSCATE("0x107A3BC")));
+HOOK(targetLibName, 
+	
+str2Offset(OBFUSCATE("0x107A2E0")), AddScore, old_AddScore);
+	
     HOOK(targetLibName, str2Offset(OBFUSCATE("0x107A2E0")), AddScore, old_AddScore);
     HOOK(targetLibName, str2Offset(OBFUSCATE("0x107A2FC")), AddCoins, old_AddCoins);
     HOOK(targetLibName, str2Offset(OBFUSCATE("0x1078C44")), Update, old_Update);
