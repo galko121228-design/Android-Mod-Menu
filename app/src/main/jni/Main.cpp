@@ -38,9 +38,9 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            OBFUSCATE("Toggle_No death"),
+            OBFUSCATE("Toggle_No death (define)') ,
             OBFUSCATE("Button_Start Invcibility (30 sec duration)"),
-            OBFUSCATE("SeekBar_Score multiplier_1_100"),
+            OBFUSCATE("SeekBar_Define multiplier_1_100"),
             OBFUSCATE("SeekBar_Coins multiplier_1_1000"),
             OBFUSCATE("Category_Define Client Settings"), //Not counted
             OBFUSCATE("Toggle_The toggle"),
